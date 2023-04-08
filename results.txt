@@ -1,0 +1,118 @@
+Name: Sayed AlGharbi
+Email: AlGharbi@bu.edu
+
+Partner: Sadiq Alhumood
+Email: Sadiq@bu.edu
+
+
+puzzles with 5-move optimal solutions
+-------------------------------------
+algorithm                num. solved    avg. moves    avg. states tested
+------------------------------------------------------------------------
+random			10		6.0		1915.6		
+BFS			10		5.0		47.9		
+DFS (depth limit 20)	10		16.2		19072.7
+DFS (depth limit 50)	10		48.2		49043.0
+Greedy Search (using h1)	10		5.4		70.4		
+A* (using h1)		10		5.0		6.7		
+
+puzzles with 10-move optimal solutions
+-------------------------------------
+algorithm                num. solved    avg. moves    avg. states tested
+------------------------------------------------------------------------
+random			10		11.6		7611.9
+BFS			10		10.0		720.7
+DFS (depth limit 20)	10		18.8		24858.0
+DFS (depth limit 50)	10		49.2		92287.3
+Greedy Search (using h1)	10		77.8		1470.4
+A* (using h1)		10		10.0		30.2
+
+puzzles with 15-move optimal solutions
+-------------------------------------
+algorithm                num. solved    avg. moves    avg. states tested
+------------------------------------------------------------------------
+random			5		18.2		18153.0
+BFS			10		15.0		11905.5
+DFS (depth limit 20)	10		17.8		68659.0
+DFS (depth limit 50)	10		48.6		111406.0
+Greedy Search (using h1)	9		85.66		3358.88
+A* (using h1)		10		15.0		347.7
+
+
+
+Looking at the results, we can clearly infer that random is an unintelligent algorithm which could reach to a solution in 30 sec when the number of optimal moves is 10 or less, but fails drastically when the number of optimal moves is 15. This makes it the least reliable algorithm out of all. When it comes to DFS, its efficacy greatly depends on whether the optimal number of moves to a solution is known, making it easier for the coder to set the perfect depth limit. The further the depth limit is from the optimal num of moves, the more likely the algorithm will set on a bad route and take a while to produce a solution. Unlike DFS where the chances of it setting on a bad route is significantly high when it has no depth limit, BFS performance appeared to be the most reliable out of all the unintelligent algorithms even without a depth limit. 
+
+When it comes to the intelligent algorithms, Greedy Search and A*, both performed significantly well throughout all puzzles. However, the latter proved to be have an avg. moves equal to that of the optimal solution whereas the former has an extremely high avg.moves and failed once to produce a solution within 30 sec. 
+
+
+
+
+
+ puzzles with 18-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)	7		131.429		7017.286
+Greedy (heuristic h2)	9		123.555		6113.111
+# Greedy with any other heuristics
+
+A* (heuristic h1)	10		18.0		1861.7
+A* (heuristic h2)	10		18.0		1164.6		
+# Greedy with any other heuristics
+
+puzzles with 21-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)	7		130.429		498.14
+Greedy (heuristic h2)	9		141.888		3993.333
+# Greedy with any other heuristics
+
+A* (heuristic h1)	10		21.0		7728.5
+A* (heuristic h2)	10		21.0		4480.7
+# Greedy with any other heuristics
+
+puzzles with 24-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)	8		156.25		6264.75
+Greedy (heuristic h2)	10		122.6		4601.6
+# Greedy with any other heuristics
+
+A* (heuristic h1)	4		24.0		24620.25
+A* (heuristic h2)	9		24.0		17843.444
+# Greedy with any other heuristics
+
+puzzles with 27-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)	10		163.4		2775.8
+Greedy (heuristic h2)	10		157.2		5336.2
+# Greedy with any other heuristics
+
+A* (heuristic h1)	0
+A* (heuristic h2)	0
+# Greedy with any other heuristics
+
+
+At a quick glance at the graph, it is obvious that h2 is a superior algorithm to h1. We can see an increase in num. solved within a 30 sec time frame once we switch from h1 to h2. While the avg. moves is expected to remain unchanged for A*, it is shown to decrease for Greedy when h2 is used, except when there is 21-move to the optimal solution. When it comes to the avg. states, the switch from h1 to h2 shows inconsistent outcomes between each algorithm and the between the num of moves to an optimal solution. Yet it remains consistent in solving more puzzles within a given time. Whats surprising however is that A*'s efficacy drops significantly when the puzzles require a larger number of moves, unlike Greedy's efficacy which appears to be directly proportional to the num of optimal moves.  
+
+
+
+heuristic h2
+------------
+This heuristic not only considers the number of displacements, but also takes into consideration where the displaced tiles are, which h1 does not take into account. To be specific, h2 looks if the tiles in a particular row of a random board match the tiles in the same row of the Goal, regardless of the tiles placement. As long as the numbers are in their right rows in a state, h2 will assign to it a lower number and hence the state will be prioritized. For example, if a state1 has tiles 1 and 2 in the first row (where they are supposed to be) and state doesn't has tiles 1 and 2 in the last row, and their number of displacements are equal, state1 will be prioritized.
+
+
+
+
+
+
+
+
+
+
+
+
